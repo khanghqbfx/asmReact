@@ -1,0 +1,19 @@
+.header {
+     display:  flex;
+     justify-content: space-between;
+}
+
+.header ul {
+     display: flex;
+     gap:  20px;
+     list-style:  none; 
+     cursor: pointer;
+}
+
+.header li {
+     font-weight: bold;       
+}
+
+.home {
+     color:rgb(243, 140, 122);
+}

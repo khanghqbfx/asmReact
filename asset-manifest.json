@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/asmReact/static/css/main.eba5d98f.css",
-    "main.js": "/asmReact/static/js/main.248bc12b.js",
+    "main.css": "/asmReact/static/css/main.dbe05f34.css",
+    "main.js": "/asmReact/static/js/main.5e3aa2f3.js",
     "static/js/787.12c04291.chunk.js": "/asmReact/static/js/787.12c04291.chunk.js",
     "static/media/product_2.png": "/asmReact/static/media/product_2.1bc52f8922d488cead68.png",
     "static/media/product_3.png": "/asmReact/static/media/product_3.48eda5293a6f605e73f7.png",
@@ -10,12 +10,12 @@
     "static/media/product_5.png": "/asmReact/static/media/product_5.b963def7555b7544d220.png",
     "static/media/banner1.jpg": "/asmReact/static/media/banner1.4a22881c941f7b645fa8.jpg",
     "index.html": "/asmReact/index.html",
-    "main.eba5d98f.css.map": "/asmReact/static/css/main.eba5d98f.css.map",
-    "main.248bc12b.js.map": "/asmReact/static/js/main.248bc12b.js.map",
+    "main.dbe05f34.css.map": "/asmReact/static/css/main.dbe05f34.css.map",
+    "main.5e3aa2f3.js.map": "/asmReact/static/js/main.5e3aa2f3.js.map",
     "787.12c04291.chunk.js.map": "/asmReact/static/js/787.12c04291.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eba5d98f.css",
-    "static/js/main.248bc12b.js"
+    "static/css/main.dbe05f34.css",
+    "static/js/main.5e3aa2f3.js"
   ]
 }

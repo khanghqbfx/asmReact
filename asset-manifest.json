@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/asmReact/static/css/main.03602e2e.css",
-    "main.js": "/asmReact/static/js/main.1830d51d.js",
+    "main.js": "/asmReact/static/js/main.051cf409.js",
     "static/js/787.12c04291.chunk.js": "/asmReact/static/js/787.12c04291.chunk.js",
     "static/media/product_2.png": "/asmReact/static/media/product_2.1bc52f8922d488cead68.png",
     "static/media/product_3.png": "/asmReact/static/media/product_3.48eda5293a6f605e73f7.png",
@@ -11,11 +11,11 @@
     "static/media/banner1.jpg": "/asmReact/static/media/banner1.4a22881c941f7b645fa8.jpg",
     "index.html": "/asmReact/index.html",
     "main.03602e2e.css.map": "/asmReact/static/css/main.03602e2e.css.map",
-    "main.1830d51d.js.map": "/asmReact/static/js/main.1830d51d.js.map",
+    "main.051cf409.js.map": "/asmReact/static/js/main.051cf409.js.map",
     "787.12c04291.chunk.js.map": "/asmReact/static/js/787.12c04291.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03602e2e.css",
-    "static/js/main.1830d51d.js"
+    "static/js/main.051cf409.js"
   ]
 }

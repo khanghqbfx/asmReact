@@ -92,9 +92,10 @@ const Detail = () => {
           
           // lọc ra tất cả các sản phẩm nó category dùng tên với nó
         
-            const filteredRelatedProducts = data.filter(item => item.category === productData.category);
+            const filteredRelatedProducts = data.filter(item => item.category === productData.category  && item.name !== productData.name);
             setRelatedProducts(filteredRelatedProducts);
           console.log(filteredRelatedProducts)
+         
 
           setLoading(false);
         })

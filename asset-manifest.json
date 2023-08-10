@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/asmReact/static/css/main.65052db7.css",
-    "main.js": "/asmReact/static/js/main.de738ece.js",
+    "main.css": "/asmReact/static/css/main.4c5c5c25.css",
+    "main.js": "/asmReact/static/js/main.b23bd410.js",
     "static/js/787.12c04291.chunk.js": "/asmReact/static/js/787.12c04291.chunk.js",
     "static/media/product_2.png": "/asmReact/static/media/product_2.1bc52f8922d488cead68.png",
     "static/media/product_3.png": "/asmReact/static/media/product_3.48eda5293a6f605e73f7.png",
@@ -10,12 +10,12 @@
     "static/media/product_5.png": "/asmReact/static/media/product_5.b963def7555b7544d220.png",
     "static/media/banner1.jpg": "/asmReact/static/media/banner1.4a22881c941f7b645fa8.jpg",
     "index.html": "/asmReact/index.html",
-    "main.65052db7.css.map": "/asmReact/static/css/main.65052db7.css.map",
-    "main.de738ece.js.map": "/asmReact/static/js/main.de738ece.js.map",
+    "main.4c5c5c25.css.map": "/asmReact/static/css/main.4c5c5c25.css.map",
+    "main.b23bd410.js.map": "/asmReact/static/js/main.b23bd410.js.map",
     "787.12c04291.chunk.js.map": "/asmReact/static/js/787.12c04291.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65052db7.css",
-    "static/js/main.de738ece.js"
+    "static/css/main.4c5c5c25.css",
+    "static/js/main.b23bd410.js"
   ]
 }

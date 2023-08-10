@@ -3,7 +3,9 @@ import classes from './Cart.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
 import { FaAngleLeft , FaAngleRight ,FaTrash } from "react-icons/fa";
-import { listCartActions }from '../../store/cart'
+import { listCartActions }from '../../store/cart';
+
+
 
  
 const Cart = () => {
@@ -11,8 +13,11 @@ const Cart = () => {
     const cartList = useSelector((state) => state.cart.listCart) || [];
     //Dispatch actions
     const dispatch = useDispatch();
+
   
-    //Xóa sản phẩm
+     
+  
+    //Xóa sản phẩm  
     const deleteCartHandler = (item) => {
       //Tìm vị trí của item trong state listCart
       const index = cartList.indexOf(item);
@@ -20,6 +25,8 @@ const Cart = () => {
       //Dispatch action xóa
       dispatch(listCartActions.DELETE_CART(index));
     };
+
+
   
     //Chuyển về trang shop
     const navigate = useNavigate();
@@ -31,12 +38,14 @@ const Cart = () => {
     const decreaseHandler = (item) => {
       //Tìm vị trí của item trong state listCart
       const index = cartList.indexOf(item);
+      
       //Giảm quantity
-      const counter = -1;
+      const counter = -1
+      console.log(counter)
       //Dispatch action update
       if (cartList[index].quantity > 1) {
         dispatch(listCartActions.UPDATE_CART([index, counter]));
-      } else if (cartList[index].quantyti === 1) {
+      } else if (cartList[index].quantity === 1) {
         dispatch(listCartActions.DELETE_CART(index));
       }
     };
@@ -49,9 +58,9 @@ const Cart = () => {
       const counter = 1;
       //Dispatch action update
       dispatch(listCartActions.UPDATE_CART([index, counter]));
-     
     };
-    
+
+   
   
     return (
         <>
@@ -75,7 +84,7 @@ const Cart = () => {
               </thead>
               <tbody>
                 {cartList.map((items, index) => {
-                    console.log(items)
+                  console.log(items)
                   return (
                     <tr key={index}>
                       <td>
@@ -91,7 +100,8 @@ const Cart = () => {
                         <button onClick={() => decreaseHandler(items)}>
                           <FaAngleLeft></FaAngleLeft>
                         </button>
-                        {items.quantyti }
+                        
+                        {items.quantity}
                         <button onClick={() => increaseHandler(items)}>
                           <FaAngleRight></FaAngleRight>
                         </button>

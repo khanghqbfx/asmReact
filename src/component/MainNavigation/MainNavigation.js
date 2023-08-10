@@ -31,7 +31,7 @@ const MainNavigation = () => {
   //Thông tin người đăng nhập
   const currentUserInfo = localStorage.getItem('user_accounts');
   const pasedCurren = currentUserInfo ? JSON.parse(currentUserInfo) : null;
-  console.log(pasedCurren)
+console.log(pasedCurren)
 
 
 

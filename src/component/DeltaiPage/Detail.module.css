@@ -102,4 +102,28 @@
     color: #ccc;
     font-size: 20px;
     cursor: pointer;
+    border-radius: 1px solid #ccc;
+}
+
+.relates {
+    display: block;
+}
+
+
+   
+.relatedProd {
+    display: grid;
+    padding-left: 50px;   
+    align-items: center;
+}
+.link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ccc;
+    padding-top: 5px;
+}
+.relatedProd p {
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
 }

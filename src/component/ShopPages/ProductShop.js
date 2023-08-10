@@ -8,6 +8,7 @@ const ProductsShop = () => {
   const [productShop, setProductShop] = useState([]);
   const [category, setCategory] = useState('all');
 
+
   useEffect(() => {
     fetch('https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74')
       .then(response => response.json())
@@ -30,6 +31,8 @@ const ProductsShop = () => {
     console.log(selected);
   };
 
+   //Function format thành tiền tệ
+   const formatter = new Intl.NumberFormat();
 
   return (
     <div className={classes.container}>
@@ -69,7 +72,8 @@ const ProductsShop = () => {
             <div key={product.id}>
               <img src={product.img1}  alt ={product.name} className={classes.img} />
               <Link to={`/detail/${product._id.$oid}`} className={classes.link}>{product.name}</Link>
-              <p>{product.price}</p>
+              <p className={classes.price}>{`${formatter.format(product.price)}
+                        VND`}</p>
             </div>
           ))}
         </div>

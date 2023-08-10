@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams ,Link } from 'react-router-dom';
 import  classes from './Detail.module.css'
 import {FaAngleLeft ,FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,9 +18,13 @@ const Detail = () => {
   }
 
   const [itemData, setItemData] = useState(null);
-
-  const [relatedProducts, setRelatedProducts] = useState([]);
   
+  const [relatedProducts, setRelatedProducts] = useState([]);
+    console.log(relatedProducts)
+ 
+
+  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -29,10 +33,11 @@ const Detail = () => {
   const dispatch = useDispatch();
 
 
+
   const addToHanler = () => {
     const item = {
       ...itemData, 
-      quantyti: parseInt(text) || 1,
+      quantity: parseInt(text) || 1,
       totalPrice : itemData.price * parseInt(text),
     }
     if(cartItem.length === 0  || cartItem.filter((el) => el._id === item._id)) {
@@ -63,12 +68,14 @@ const Detail = () => {
       setText(value)
      }
 
-     
+       //Function format thành tiền tệ
+    const formatter = new Intl.NumberFormat();
 
 
 
   // lấy dữ liệu API
   useEffect(() => {
+    console.log(id);
     setLoading(true);
     setError(null);
   
@@ -76,6 +83,7 @@ const Detail = () => {
       .then(response => response.json())
       .then(data => {
           setItemData(data)
+          console.log(data)
          
 
           // lọc và chon ra 1  sản phẩm bằng với id  từ chuyển từ shop sang detail
@@ -85,9 +93,14 @@ const Detail = () => {
           
           // lọc ra tất cả các sản phẩm nó category dùng tên với nó
         
-            const filteredRelatedProducts = data.filter(item => item._id.$oid === id);
+            const filteredRelatedProducts = data.filter(item => item.category === productData.category  && item.name !== productData.name);
             setRelatedProducts(filteredRelatedProducts);
-          
+          console.log(filteredRelatedProducts)
+           
+        
+
+           
+           
 
           setLoading(false);
         })
@@ -110,86 +123,91 @@ const Detail = () => {
       return <div>Product not found.</div>;
     }
 
-    // sữ lý acc sản phẩm qua trang cart
-
+   const onClickHanler = (selected) => {
     
+    console.log(selected)
+
+   }
+   
     return (
       <div>
-      <div >
-        {itemData && (
-          <div>
-                <div  key = {itemData.id} className= {classes.container}>
-                  <div className={classes.img}>
-                    <img src={itemData.img1} alt={itemData.name} />
-                    <img src={itemData.img2} alt={itemData.name} />
-                    <img src={itemData.img3} alt={itemData.name} />
-                    <img src={itemData.img4} alt={itemData.name} />
-                  </div>
+        <div>
+          {itemData && (
+            <div>
+              <div key={itemData.id} className={classes.container}>
+                <div className={classes.img}>
+                  <img src={itemData.img1} alt={itemData.name} />
+                  <img src={itemData.img2} alt={itemData.name} />
+                  <img src={itemData.img3} alt={itemData.name} />
+                  <img src={itemData.img4} alt={itemData.name} />
+                </div>
 
-      
-                  <img src={itemData.img1} alt={itemData.name} className={classes.imgtitle} />
-                
-    
-                  <div className= {classes.title}> 
-                      <h2>{itemData.name}</h2>
-                      <p>{itemData.description}</p>
-                      <p>Price: {itemData.price}</p>
-                      <p>{itemData.short_desc}</p>
-                      <h3>CATEGORIES : {itemData.category} </h3>
+                <img
+                  src={itemData.img1}
+                  alt={itemData.name}
+                  className={classes.imgtitle}
+                />
 
-                      <div className={classes.button}>
-                          <div className= {classes.text}>
-                          <span className={classes.quantyti}>Quantity</span>
+                <div className={classes.title}>
+                  <h2>{itemData.name}</h2>
+                  <p>{itemData.description}</p>
+                  <p>Price: {itemData.price}</p>
+                  <p>{itemData.short_desc}</p>
+                  <h3>CATEGORIES : {itemData.category} </h3>
 
+                  <div className={classes.button}>
+                    <div className={classes.text}>
+                      <span className={classes.quantyti}>Quantity</span>
 
-                        <button onClick = {downText}>
-
-                          <FaAngleLeft />
-                        </button>
-                        <input type='text'
-                                value={text}
-                                onChange={onChangeText}>
-                        </input>
-                        <button onClick={Uptext}>
-                          <FaAngleRight/>
-                        </button>
-                          </div>
-                          <div>
-                          <span  onClick = {addToHanler}
-                          className={classes.add}>ADD TO CART</span>
-                    
-                          </div>
-                      
-                      </div>
-                    
-                    
-                    
-                    
+                      <button onClick={downText}>
+                        <FaAngleLeft />
+                      </button>
+                      <input
+                        type="text"
+                        value={text}
+                        onChange={onChangeText}
+                      ></input>
+                      <button onClick={Uptext}>
+                        <FaAngleRight />
+                      </button>
                     </div>
+                    <div>
+                      <span onClick={addToHanler} className={classes.add}>
+                        ADD TO CART
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className={ classes.description}>
+              <div className={classes.description}>
                 <button>DESCRIPTION</button>
                 <h3>Product DESCRIPTION</h3>
                 <p>{itemData.long_desc}</p>
-              
               </div>
-          </div>
-        
-        )}
+            </div>
+          )}
         </div>
-                <h3 className={classes.related}>Related Products:</h3>
-                {relatedProducts.length > 0 ? (
-                  relatedProducts.map(relatedProduct => (
-                    <div key={relatedProduct.id} className={classes.relatedProd}>
-                      <img src={relatedProduct.img1} alt={relatedProduct.name} />
-                      <p>{relatedProduct.name}</p>
-                      <p>Price: {relatedProduct.price}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No related products found.</p>
-                )}
-          </div>
+        <h3 className={classes.related}>Related Products:</h3>
+        {relatedProducts.length > 0 ? (
+          relatedProducts.map((relatedProduct) => (
+            <div>
+              <div className={classes.relates}>
+              <div key={relatedProduct.id} className={classes.relatedProd}>
+                <img src={relatedProduct.img1} alt={relatedProduct.name} />
+                <Link to={`/detail/${relatedProduct._id.$oid}`} className={classes.link}>{relatedProduct.name}</Link>
+                <p>{`${formatter.format(relatedProduct.price)}
+                        VND`}</p>
+              </div>
+
+              </div>
+             
+            
+            </div>
+          ))
+        ) : (
+          <p>No related products found.</p>
+        )}
+      </div>
     );
   };
 

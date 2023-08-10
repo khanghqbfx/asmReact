@@ -1,4 +1,4 @@
-import  classes from './Checkuot.module.css';
+import classes from './checkuot.module.css';
 import {useSelector}from 'react-redux'
 
 
@@ -11,15 +11,7 @@ const Checkout = () => {
     //Function format thành tiền tệ
     const formatter = new Intl.NumberFormat();
     return (
-      <>
-      
-        <div className={classes.checkout}>
-          <div className={classes.checkout_banner}>
-            <header>CART</header>
-            <p>
-              <b>HOME / CART /</b> CHECKOUT
-            </p>
-          </div>
+      <div className={classes.checkout }>
           <h1>BILLING DETAIL</h1>
           <form className={classes.checkout_form}>
             <label>FULL NAME:</label>
@@ -40,7 +32,7 @@ const Checkout = () => {
                   <h3>{item.name}</h3>
                   <p>
                     {`${formatter.format(item.price)} VND x
-                    ${item.quantyti}`}
+                    ${item.quantity}`}
                   </p>
                   <hr></hr>
                 </span>
@@ -56,9 +48,11 @@ const Checkout = () => {
               VND
             </p>
           </div>
-        </div>
+          </div>
+         
        
-      </>
+       
+      
     );
   };
   

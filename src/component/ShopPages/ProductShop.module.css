@@ -43,22 +43,43 @@
 
  /* css  phần  hình ảnh*/
 
-.title {
+ .title {
     display: grid;
-    grid-template-columns: repeat( 4 ,1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
     padding-left: 20px;
-    gap: 50px;
-}
+    gap: 30px;
+   
+    text-align: center;
+    
+  }
 
-.img{
-    width: 220px;
-}
+  
+
+.img {
+    width: 250px;
+    display: flex;
+    align-items: center;
+   
+    text-align: center;
+    
+  }
+  
+  .img img {
+    max-width: 100%;
+    height: auto;
+    font-size: 16px; /* Kích thước font chữ của hình ảnh */
+  }
 
 .link {
     text-decoration: none;
     font-size: 20px;
-    color: #ccc;
-    
+    color: #ccc;  
+}
+.price {
+    text-align: center;
+    align-items: center;
+
 }
 
 .btn {
@@ -69,3 +90,4 @@
     padding: 10px;
 
 }
+
